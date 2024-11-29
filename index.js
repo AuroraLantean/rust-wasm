@@ -1,18 +1,24 @@
-// Import our outputted wasm ES6 module
-// Which, export default's, an initialization function
-import wasmInit from './pkg/wasm1.js';
+import init, { calculate_tax } from "./pkg/tax_calculator_wasm.js";
 
-const runWasm = async () => {
-  console.log('inside runWasm');
-  // Instantiate our wasm module
-  const module1 = await wasmInit('./pkg/wasm1_bg.wasm');
-  console.log('module1 is loaded');
+const ll = console.log
 
-  // Call the Add function export from wasm, save the result
-  const addResult = module1.add(24, 24);
-  console.log('addResult:', addResult);
+async function wasmRun() {
+	ll("inside wasmRun()")
+	await init();
 
-  // Set the result onto the body
-  document.body.textContent = `Hello World! addResult: ${addResult}`;
-};
-runWasm();
+	function calculateTax() {
+		ll("inside calculateTax()")
+		const income = parseFloat(document.getElementById("income").value);
+		
+		const tax = calculate_tax(income);
+		
+		document.getElementById("result").innerText = `Tax: $${tax.toFixed(2)}`;
+
+		//console.log("add:", add(13, 24))
+	  //document.body.textContent = `Hello World! addResult: ${addResult}`;
+	}
+
+	document.getElementById("calculateButton").addEventListener("click", calculateTax); // Add event listener to button
+}
+
+wasmRun();

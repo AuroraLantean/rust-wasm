@@ -4,11 +4,12 @@ debug/
 **/*.rs.bk
 *.pdb
 node_modules
-test-ledger
-dist/
 .idea/
 .yarn
 .env*
+bin/
+pkg/
+wasm-pack.log
 aarchives
 examples
 removed.rs
