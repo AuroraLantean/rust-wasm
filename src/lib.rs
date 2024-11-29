@@ -18,6 +18,12 @@ pub fn add(a: i32, b: i32) -> i32 {
 }
 
 #[wasm_bindgen]
+pub fn sub(a: i32, b: i32) -> i32 {
+  //println!("add() called");
+  return a - b;
+}
+
+#[wasm_bindgen]
 pub fn calculate_tax(income: f64) -> f64 {
   let mut tax = 0.0;
 

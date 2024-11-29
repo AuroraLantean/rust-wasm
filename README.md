@@ -23,7 +23,7 @@ wasm-pack build --target web
 Run the HTML server:
 `python3 -m http.server` OR `http-server .`
 
-
+[Note] Sometimes the browser does not refresh the new js files. So you must delete the cache or re-open the browser!
 
 ## About
 
