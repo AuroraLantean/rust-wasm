@@ -44,3 +44,27 @@ pub fn calculate_tax(income: f64) -> f64 {
   }
   tax
 }
+
+#[wasm_bindgen]
+pub fn is_prime(s: &str) -> bool {
+  if let Ok(s128) = s.parse::<u128>() {
+    return is_prime_u128(s128);
+  }
+  false
+}
+fn is_prime_u128(num: u128) -> bool {
+  if num == 0 || num == 1 {
+    return false;
+  }
+
+  let mut i = 2;
+
+  while i * i <= num {
+    if num % i == 0 {
+      return false;
+    }
+
+    i += 1;
+  }
+  true
+}
