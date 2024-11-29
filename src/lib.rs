@@ -9,19 +9,13 @@ extern "C" {
 #[wasm_bindgen]
 pub fn greet_name(name: &str) {
   alert(&format!("Hello {}!", name));
-}
+}*/
 
 #[wasm_bindgen]
 pub fn add(a: i32, b: i32) -> i32 {
-    println!("add() called");
-    return a + b;
-}*/
-
-//<script type="module" src="./index.js"></script>
-//<link rel="preload" href="./index.js" as="script" />
-
-//pnpm install -g http-server && http-server .
-//python3 -m http.server
+  //println!("add() called");
+  return a + b;
+}
 
 #[wasm_bindgen]
 pub fn calculate_tax(income: f64) -> f64 {

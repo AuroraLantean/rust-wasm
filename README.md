@@ -9,6 +9,21 @@ https://www.rust-lang.org/tools/install
 Install Wasm-pack
 https://rustwasm.github.io/wasm-pack/installer/
 
+Install a HTML server or Python3
+```
+pnpm install -g http-server
+http-server .
+```
+
+
+Compile Rust file into WASM
+```
+wasm-pack build --target web
+```
+Run the HTML server:
+`python3 -m http.server` OR `http-server .`
+
+
 
 ## About
 
